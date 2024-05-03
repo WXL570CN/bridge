@@ -11,13 +11,71 @@
     .main-header {
       height: 60px;
       background-color: rgba(0, 0, 0, 0.35);
-    }
-    .sub-header {
-      height: 88px;
-      background-color: rgb(25 37 49);
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .logo {
+        display: flex;
+        align-items: center;
+        flex: 1;
+        .name {
+          color: rgb(255 255 255);
+          font-size: 18px;
+          margin-left: 10px;
+        }
+      }
+      .tabs {
+        display: flex;
+        > a {
+          cursor: pointer;
+          font-size: 14px;
+          color: rgba(232, 249, 255, 0.75);
+          font-weight: 600;
+          > div {
+            height: 60px;
+            padding: 0 20px;
+            line-height: 60px;
+          }
+          &.active,
+          &:hover {
+            color: #c7f284;
+            background-color: rgb(28 41 54);
+          }
+        }
+      }
+      .extra {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        .user {
+          color: transparent;
+          background-image: linear-gradient(
+            247.44deg,
+            #c7f284 13.88%,
+            #00bef0 99.28%
+          );
+          background-clip: text;
+          font-weight: bold;
+          font-size: 15px;
+          cursor: pointer;
+          border-radius: 9999px;
+          height: 40px;
+          line-height: 40px;
+          padding: 0 20px;
+          border-width: 1px;
+          border-style: solid;
+          &:hover {
+            border-color: #cbf786;
+          }
+        }
+      }
     }
   }
   .page-container {
     flex: 1;
+    display: flex;
+    justify-content: center;
   }
 }
