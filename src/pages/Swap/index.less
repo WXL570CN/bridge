@@ -193,8 +193,8 @@
             outline: none;
           }
 
-          input:focus~label,
-          input:valid~label {
+          input:focus ~ label,
+          input:valid ~ label {
             top: 20px;
             font-size: 14px;
           }
@@ -238,7 +238,7 @@
       }
     }
 
-    .connect-wallet {
+    .submit-btn {
       width: 100%;
       margin-top: 20px;
       padding: 20px 0;
@@ -249,11 +249,23 @@
       border-radius: 15px;
       cursor: pointer;
 
-      .text {
-        background-image: linear-gradient(247.44deg, #c7f284 13.88%, #00bef0 99.28%);
+      .connect-wallet {
+        background-image: linear-gradient(
+          247.44deg,
+          #c7f284 13.88%,
+          #00bef0 99.28%
+        );
         font-weight: bold;
         font-size: 20px;
         color: transparent;
+        background-clip: text;
+      }
+
+      .text {
+        color: rgba(207, 243, 255, 0.25);
+        font-weight: bold;
+        background-image: none;
+        font-size: 18px;
         background-clip: text;
       }
 
@@ -278,7 +290,7 @@
         .conversion-info {
           display: flex;
           align-items: center;
-          color: hsla(0, 0%, 100%, .35);
+          color: hsla(0, 0%, 100%, 0.35);
           transition: 0.2s ease all;
           cursor: pointer;
 
@@ -292,7 +304,7 @@
         }
 
         .price-info {
-          color: hsla(0, 0%, 100%, .25);
+          color: hsla(0, 0%, 100%, 0.25);
           display: flex;
           align-items: center;
           transition: 0.2s ease all;
@@ -314,6 +326,7 @@
         display: none;
         margin-top: 10px;
       }
+
       .content-visible {
         display: block;
       }
@@ -324,8 +337,9 @@
 .info-box {
   font-size: 12px;
   margin-bottom: 10px;
+
   .name {
-    color: hsla(0, 0%, 100%, .5);
+    color: hsla(0, 0%, 100%, 0.5);
   }
 
   .value {

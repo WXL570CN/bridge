@@ -1,13 +1,17 @@
-import { Avatar, Popover } from 'antd';
-import styles from './index.less';
 import { UserOutlined } from '@ant-design/icons';
+import { ConnectButton, useConnectModal } from '@rainbow-me/rainbowkit';
+import { Avatar } from 'antd';
 import { useEffect, useState } from 'react';
-import routes from '../../../config/routes';
 import { history } from 'umi';
+import { useAccount } from 'wagmi';
+import routes from '../../../config/routes';
+import styles from './index.less';
 
-const ThemeProvider = (props) => {
+const PageContainer = (props) => {
   const { children } = props;
   const [active, setActive] = useState();
+  const { address } = useAccount();
+  const { openConnectModal } = useConnectModal();
 
   useEffect(() => {
     setActive(history.location.pathname);
@@ -42,7 +46,13 @@ const ThemeProvider = (props) => {
             ))}
           </div>
           <div className={styles['extra']}>
-            <div className={styles['user']}>Connect Wallet</div>
+            {address ? (
+              <ConnectButton />
+            ) : (
+              <div className={styles['text']} onClick={openConnectModal}>
+                Connect Wallet
+              </div>
+            )}
           </div>
         </div>
       </div>
@@ -51,4 +61,4 @@ const ThemeProvider = (props) => {
   );
 };
 
-export default ThemeProvider;
+export default PageContainer;
